@@ -28,9 +28,9 @@ $$q(x_t \mid x_0) = \mathcal{N}\!\left(\sqrt{\bar\alpha_t}\, x_0,\; (1 - \bar\al
 >
 > *로 모든 diffusion 을 통합 함을 유도할 수 있는 것은 다르다.*
 >
-> *DDIM 을 **"빠른 샘플링"** 으로 아는 것과, Song et al. (2021) 의 non-Markovian forward $q_\sigma(x_{t-1} \mid x_t, x_0)$ 가 어떻게 $\sigma_t \to 0$ 극한에서 **deterministic ODE** 가 되고, 이것이 sampling step 을 50 으로 줄여도 품질이 유지되는 이유를 유도할 수 있는 것은 다르다.*
+> *DDIM 을 **"빠른 샘플링"** 으로 아는 것과, Song et al. (2021) 의 non-Markovian forward* $q_\sigma(x_{t-1} \mid x_t, x_0)$ *가 어떻게* $\sigma_t \to 0$ *극한에서 **deterministic ODE** 가 되고, 이것이 sampling step 을 50 으로 줄여도 품질이 유지되는 이유를 유도할 수 있는 것은 다르다.*
 >
-> *Stable Diffusion 의 **`ε = unconditional + 7.5 (conditional - unconditional)`** 코드 한 줄이 사실은 Ho & Salimans (2022) 의 classifier-free guidance $\tilde\epsilon = (1 + w)\, \epsilon_\theta(x, y) - w\, \epsilon_\theta(x, \emptyset)$ 의 직접 구현이고, $w$ 가 **sharpness-diversity trade-off** 의 하이퍼파라미터임을 알고 쓰는 것은 다르다.*
+> *Stable Diffusion 의* **`ε = unconditional + 7.5 (conditional - unconditional)`** *코드 한 줄이 사실은 Ho & Salimans (2022) 의 classifier-free guidance* $\tilde\epsilon = (1 + w)\, \epsilon_\theta(x, y) - w\, \epsilon_\theta(x, \emptyset)$ *의 직접 구현이고,* $w$ *가 **sharpness-diversity trade-off** 의 하이퍼파라미터임을 알고 쓰는 것은 다르다.*
 
 <br/>
 
