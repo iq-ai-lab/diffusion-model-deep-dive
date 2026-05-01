@@ -1,0 +1,270 @@
+# =============================================================================
+# Diffusion Model Deep Dive — .gitignore
+# =============================================================================
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Distribution / Packaging
+.Python
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ── Jupyter Notebook ─────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ── NumPy / PyTorch / Diffusers cache ────────────────────────────────────────
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.ckpt
+*.msgpack
+
+# Framework caches (PyTorch, diffusers, accelerate)
+.torch_cache/
+.diffusers_cache/
+.accelerate_cache/
+
+# ── HuggingFace / diffusers cache ────────────────────────────────────────────
+# Pretrained Stable Diffusion · SDXL · SD3 · DiT 등 다운로드 캐시
+.cache/huggingface/
+hub/
+models--*/
+datasets_cache/
+transformers_cache/
+diffusers_cache/
+
+# ── 사전 학습 가중치 / 체크포인트 ──────────────────────────────────────────────
+# Stable Diffusion · SDXL · SD3 · Imagen · DiT · Consistency Model
+pretrained/
+weights/
+checkpoints/
+*.ckpt
+*.safetensors
+*.bin
+
+# Custom-trained VAE / UNet / DiT
+trained_models/
+finetuned/
+
+# LoRA · DreamBooth · Textual Inversion 산출물
+lora_weights/
+embeddings/
+dreambooth_outputs/
+
+# ── 데이터셋 / 학습 데이터 ──────────────────────────────────────────────────
+# CIFAR-10 · MNIST · ImageNet · LAION subset · CelebA-HQ 등
+data/
+datasets/
+raw/
+processed/
+!data/.gitkeep
+
+# 대규모 multimodal dataset
+laion/
+coco/
+imagenet/
+celeba/
+
+# Image / latent 캐시
+*.h5
+*.hdf5
+*.lmdb
+*.tfrecord
+
+# ── Experiment outputs ───────────────────────────────────────────────────────
+# 생성된 시각화·학습 곡선·plot (각 챕터)
+# Ch1: Forward closed-form 검증 · noise schedule 비교 · posterior 시각화
+# Ch2: ELBO 분해 항별 trajectory · L_simple vs L_vlb 비교 · improved DDPM ablation
+# Ch3: NCSN multi-scale Langevin · VP-SDE/VE-SDE trajectory · score 시각화
+# Ch4: DDIM vs DDPM step 수 비교 · probability flow ODE · DPM-Solver
+# Ch5: CFG scale sweep (w = 0, 3, 7, 15) · classifier guidance trajectory
+# Ch6: VAE latent 시각화 · UNet vs DiT scaling · MM-DiT attention map
+# Ch7: Consistency Model 1-step · Rectified Flow trajectory · distillation curve
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.gif
+*.mp4
+*.webm
+*.webp
+
+# 생성된 sample / 시각화
+samples/
+generated/
+sample_grids/
+intermediate_steps/
+
+# 훈련 결과 / 로깅
+results/
+outputs/
+logs/
+runs/
+wandb/
+mlruns/
+tensorboard/
+tb_logs/
+lightning_logs/
+*.log
+*.csv
+*.tfevents.*
+
+# Sampling video (forward / reverse process animation)
+videos/
+recordings/
+denoising_anim/
+*.mov
+*.avi
+
+# 재현 실험 산출물 (논문별)
+reproductions/sohl-dickstein2015/*.pkl
+reproductions/ho2020_ddpm/*.pt
+reproductions/song2019_ncsn/*.pt
+reproductions/song2021_score_sde/*.pt
+reproductions/song2021_ddim/*.pt
+reproductions/nichol2021_improved_ddpm/*.pt
+reproductions/dhariwal2021_classifier_guidance/*.pt
+reproductions/ho2022_cfg/*.pt
+reproductions/rombach2022_ldm/*.pt
+reproductions/saharia2022_imagen/*.pt
+reproductions/peebles2023_dit/*.pt
+reproductions/esser2024_sd3/*.pt
+reproductions/song2023_consistency/*.pt
+reproductions/liu2022_rectified_flow/*.pt
+reproductions/lipman2023_flow_matching/*.pt
+reproductions/lu2022_dpm_solver/*.pt
+reproductions/salimans2022_progressive_distillation/*.pt
+
+# ── Hyperparameter sweeps ────────────────────────────────────────────────────
+sweeps/
+optuna_studies/
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Text prompt / conditioning 캐시 ──────────────────────────────────────────
+# CLIP / T5 text embedding 사전 계산 결과
+text_embeddings/
+clip_cache/
+t5_cache/
+prompt_cache/
+
+# ── IDE / Editor ─────────────────────────────────────────────────────────────
+# JetBrains (PyCharm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+
+# ── Documentation build ──────────────────────────────────────────────────────
+docs/_build/
+docs/generated/
+site/
+.mkdocs_cache/
+
+# ── Secrets / Credentials ────────────────────────────────────────────────────
+.env.local
+.env.*.local
+secrets.py
+credentials.json
+*.pem
+*.key
+openai_api_key*
+hf_token*
+wandb_api_key*
+anthropic_api_key*
+
+# ── GPU / CUDA cache ─────────────────────────────────────────────────────────
+.nv_cache/
+.nvidia/
+*.cu.o
+.torch_extensions/
+
+# xformers / flash-attention 빌드 캐시
+.xformers_cache/
+.flash_attn_cache/
+
+# ── Compiled extensions / build artifacts ────────────────────────────────────
+*.ninja
+*.ninja_log
+*.ninja_deps
+
+# ── Miscellaneous ────────────────────────────────────────────────────────────
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+*.mo
+*.pot
