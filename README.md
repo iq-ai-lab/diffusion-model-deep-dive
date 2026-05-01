@@ -10,7 +10,7 @@ $$q(x_t \mid x_0) = \mathcal{N}\!\left(\sqrt{\bar\alpha_t}\, x_0,\; (1 - \bar\al
 
 ### 이것이 Markov forward <span>$q(x_t \mid x_{t-1}) = \mathcal{N}(\sqrt{1-\beta_t}\, x_{t-1},\, \beta_t I)$</span> 의 **reparameterized 누적분포** 이고,
 
-### Reverse ELBO 가 unrolled 되어 $L\sb{\mathrm{vlb}} = L\sb{T} + \sum\sb{t=2}^T L\sb{t-1} + L\sb{0}$ 로 분해되며, noise parameterization 으로 $L\sb{\mathrm{simple}} = \mathbb{E}\sb{t, x\sb{0}, \epsilon}[\|\epsilon - \epsilon\sb{\theta}(x\sb{t}, t)\|^2]$ 로 간소화 됨을 Ho et al. (2020) 으로부터 한 줄씩 유도할 수 있는 것은 **다르다.**
+### Reverse ELBO 가 unrolled 되어 $L\_{\mathrm{vlb}} = L\_T + \sum\_{t=2}^T L\_{t-1} + L\_0$ 로 분해되며, noise parameterization 으로 $L\_{\mathrm{simple}} = \mathbb{E}\_{t, x\_0, \epsilon}[\|\epsilon - \epsilon\_{\theta}(x\_t, t)\|^2]$ 로 간소화 됨을 Ho et al. (2020) 으로부터 한 줄씩 유도할 수 있는 것은 **다르다.**
 
 <br/>
 
